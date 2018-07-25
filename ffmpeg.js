@@ -10,7 +10,7 @@ spawn.sync(
     '-framerate',
     '25',
     '-video_size',
-    '640x480',
+    `${env.WIDTH}x${env.HEIGHT}`,
     '-i',
     env.INPUT,
     '-f',
