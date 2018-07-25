@@ -1,0 +1,23 @@
+extends layout
+
+append scripts
+  script(src='/js/vendor/jsmpeg.min.js')
+  script.
+    window.webSocketPort = #{webSocketPort};
+  script(src='/js/core.js')
+
+append stylesheets
+  style(type='text/css').
+    body {
+      background: black;
+      text-align: center;
+      margin-top: 5%;
+    }
+    #video {
+      background: blue;
+      width: #{width}px;
+      height: #{height}px;
+    }
+
+block body
+  canvas#video(width=width, height=height)

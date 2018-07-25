@@ -1,0 +1,96 @@
+{
+  "apps": [
+    {
+      "name": "web0",
+      "script": "web.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "WEB_PORT": "7000",
+        "WEBSOCKET_PORT": "8000"
+      }
+    },
+    {
+      "name": "web1",
+      "script": "web.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "WEB_PORT": "7001",
+        "WEBSOCKET_PORT": "8001"
+      }
+    },
+    {
+      "name": "web2",
+      "script": "web.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "WEB_PORT": "7002",
+        "WEBSOCKET_PORT": "8002"
+      }
+    },
+    {
+      "name": "stream0",
+      "script": "stream.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "WEBSOCKET_PORT": "8000",
+        "STREAM_PORT": "9000"
+      }
+    },
+    {
+      "name": "stream1",
+      "script": "stream.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "WEBSOCKET_PORT": "8001",
+        "STREAM_PORT": "9001"
+      }
+    },
+    {
+      "name": "stream2",
+      "script": "stream.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "WEBSOCKET_PORT": "8002",
+        "STREAM_PORT": "9002"
+      }
+    },
+    {
+      "name": "video0",
+      "script": "ffmpeg.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "INPUT": "/dev/video0",
+        "STREAM_PORT": "9000"
+      }
+    },
+    {
+      "name": "video1",
+      "script": "ffmpeg.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "INPUT": "/dev/video1",
+        "STREAM_PORT": "9001"
+      }
+    },
+    {
+      "name": "video2",
+      "script": "ffmpeg.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "INPUT": "/dev/video2",
+        "STREAM_PORT": "9002"
+      }
+    }
+  ],
+  "deploy": {
+    "production": {
+      "user": "deploy",
+      "host": "nuc",
+      "ref": "origin/master",
+      "repo": "git@github.com:niftylettuce/tangerine.git",
+      "path": "/var/www/production",
+      "post-deploy":
+        "yarn && pm2 startOrGracefulReload ecosystem.json --env production"
+    }
+  }
+}
