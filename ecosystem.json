@@ -59,7 +59,8 @@
       "script": "ffmpeg.js",
       "env_production": {
         "NODE_ENV": "production",
-        "INPUT": "/dev/video0",
+        "VIDEO_INPUT": "/dev/video0",
+        "AUDIO_INPUT": "hw:CARD=C920,DEV=0",
         "STREAM_PORT": "9000"
       }
     },
@@ -68,7 +69,8 @@
       "script": "ffmpeg.js",
       "env_production": {
         "NODE_ENV": "production",
-        "INPUT": "/dev/video1",
+        "VIDEO_INPUT": "/dev/video1",
+        "AUDIO_INPUT": "hw:CARD=C920_1,DEV=0",
         "STREAM_PORT": "9001"
       }
     },
@@ -77,7 +79,8 @@
       "script": "ffmpeg.js",
       "env_production": {
         "NODE_ENV": "production",
-        "INPUT": "/dev/video2",
+        "VIDEO_INPUT": "/dev/video2",
+        "AUDIO_INPUT": "hw:CARD=C920_2,DEV=0",
         "STREAM_PORT": "9002"
       }
     }
