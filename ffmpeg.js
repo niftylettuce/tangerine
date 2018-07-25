@@ -13,6 +13,7 @@ spawn.sync(
     `${env.WIDTH}x${env.HEIGHT}`,
     '-i',
     env.VIDEO_INPUT,
+    /*
     '-f',
     'alsa',
     '-thread_queue_size',
@@ -21,6 +22,7 @@ spawn.sync(
     // '44100',
     '-i',
     `"${env.AUDIO_INPUT}"`,
+    */
     '-f',
     'mpegts',
     '-codec:v',
