@@ -20,7 +20,7 @@ spawn.sync(
     // '-ar',
     // '44100',
     '-i',
-    env.AUDIO_INPUT,
+    `"${env.AUDIO_INPUT}"`,
     '-f',
     'mpegts',
     '-codec:v',
