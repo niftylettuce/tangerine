@@ -1,13 +1,14 @@
-(() => {
-  const canvas = document.getElementById('video');
-  const ctx = canvas.getContext('2d');
-  const { width, height } = canvas;
-  const textString = 'Loading...';
+(function() {
+  var canvas = document.getElementById('video');
+  var ctx = canvas.getContext('2d');
+  var width = canvas.width;
+  var height = canvas.height;
+  var textString = 'Loading...';
 
-  let isRetina = false;
+  var isRetina = false;
 
   if (window.matchMedia) {
-    const mq = window.matchMedia(
+    var mq = window.matchMedia(
       `only screen and (min--moz-device-pixel-ratio: 1.3), only screen and
       (-o-min-device-pixel-ratio: 2.6/2), only screen and
       (-webkit-min-device-pixel-ratio: 1.3), only screen
@@ -20,20 +21,20 @@
   if (isRetina) {
     canvas.width *= 2;
     canvas.height *= 2;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
     canvas.getContext('2d').scale(2, 2);
   }
 
   ctx.fillStyle = '#fff';
   ctx.font = '48px Arial';
 
-  const measureText = ctx.measureText(textString);
+  var measureText = ctx.measureText(textString);
 
   ctx.fillText(textString, width / 2 - measureText.width / 2, height / 2);
 
-  const player = new JSMpeg.Player(
-    `ws://${document.location.hostname}:${window.webSocketPort}`,
+  var player = new JSMpeg.Player(
+    'ws://' + document.location.hostname + ':' + window.webSocketPort,
     {
       canvas,
       disableGl: true
