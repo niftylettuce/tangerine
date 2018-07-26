@@ -1,6 +1,12 @@
+const path = require('path');
 const spawn = require('cross-spawn');
+const makeDir = require('make-dir');
 
 const env = require('./env');
+
+const dir = path.resolve(env.RECORDING_DIR, path.basename(env.VIDEO_INPUT));
+
+makeDir.sync(dir);
 
 spawn.sync(
   'ffmpeg',
@@ -35,7 +41,14 @@ spawn.sync(
     '128k',
     '-muxdelay',
     '0.001',
-    `http://localhost:${env.STREAM_PORT}`
+    `http://localhost:${env.STREAM_PORT}`,
+    '-f',
+    'segment',
+    '-segment_time',
+    '1800',
+    '-strftime',
+    '1',
+    `${dir}/%Y-%m-%d_%H-%M-%S.avi`
   ],
   { stdio: 'inherit' }
 );

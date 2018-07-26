@@ -3,4 +3,8 @@ ffmpeg \
 		-framerate 30 -video_size 640x480 -i "0" \
 	-f mpegts \
 		-codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 \
-	http://localhost:8082
+	http://localhost:8082 \
+  -f segment \
+  -segment_time 1800 \
+  -strftime 1 \
+  "%Y-%m-%d_%H-%M-%S.avi"
