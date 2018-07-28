@@ -17,7 +17,7 @@
         "WEBSOCKET_PORT": "8003",
         "STREAM_PORT": "9003"
       }
-    }
+    },
     {
       "name": "video",
       "script": "ffmpeg.js",
