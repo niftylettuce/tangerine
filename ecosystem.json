@@ -88,7 +88,7 @@
   "deploy": {
     "production": {
       "user": "deploy",
-      "host": "nuc-deploy",
+      "host": [ "nuc-deploy" ],
       "ref": "origin/master",
       "repo": "git@github.com:niftylettuce/tangerine.git",
       "path": "/var/www/production",
