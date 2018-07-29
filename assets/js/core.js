@@ -34,7 +34,7 @@
   ctx.fillText(textString, width / 2 - measureText.width / 2, height / 2);
 
   var player = new JSMpeg.Player(
-    'ws://' + document.location.hostname + ':' + window.webSocketPort,
+    'ws://' + window.auth + document.location.hostname + ':' + window.webSocketPort,
     {
       canvas,
       disableGl: true

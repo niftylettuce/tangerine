@@ -10,19 +10,28 @@ const wss = new Server({ port: env.WEBSOCKET_PORT, perMessageDeflate: false });
 
 // inspired by <https://github.com/tahaipek/Nodcam>
 wss.on('connection', socket => {
-  /*
-  const header = Buffer.alloc(8);
-  header.write('jsmp');
-  header.writeUInt16BE(env.WIDTH, 4);
-  header.writeUInt16BE(env.HEIGHT, 6);
-  socket.send(header, { binary: true });
-  */
   socket.on('close', (code, message) => {
     let log = `socket closed with code ${code}`;
     if (message) log += ` and message "${message}"`;
     logger.info(log);
   });
 });
+
+if (env.AUTH_NAME || env.AUTH_PASS)
+  wss.on('upgrade', (req, socket) => {
+    try {
+      if (
+        !req.headers.authorization ||
+        req.headers.authorization !==
+          Buffer.from(`Basic ${env.AUTH_NAME}:${env.AUTH_PASS}`).toString(
+            'base64'
+          )
+      )
+        socket.destroy();
+    } catch (err) {
+      logger.error(err);
+    }
+  });
 
 wss.broadcast = function(data, opts) {
   async.each(
@@ -52,10 +61,7 @@ const server = createServer((req, res) => {
   // TODO: when we add password/secret we need to `req.end();` early
   res.connection.setTimeout(0);
   req.on('data', data => {
-    // wss.broadcast(data, { binary: true });
     wss.broadcast(data);
-    // TODO: add ability to record?
-    // <https://github.com/phoboslab/jsmpeg/blob/master/websocket-relay.js#L70>
   });
 });
 

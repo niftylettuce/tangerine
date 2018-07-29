@@ -26,12 +26,16 @@ routes.get(
     ctx.state.width = env.WIDTH;
     ctx.state.height = env.HEIGHT;
     ctx.state.webSocketPort = env.WEBSOCKET_PORT;
+    ctx.state.auth =
+      env.AUTH_NAME || env.AUTH_PASS
+        ? `${env.AUTH_NAME}:${env.AUTH_PASS}@`
+        : '';
     return next();
   },
   render('home')
 );
 
-const server = new Server({
+const options = {
   routes,
   logger,
   csrf: false,
@@ -47,7 +51,12 @@ const server = new Server({
     }
   },
   buildDir: path.join(__dirname, 'assets')
-});
+};
+
+if (env.AUTH_NAME || env.AUTH_PASS)
+  options.auth = { name: env.AUTH_NAME, pass: env.AUTH_PASS };
+
+const server = new Server(options);
 
 if (!module.parent) {
   server.listen(env.WEB_PORT);

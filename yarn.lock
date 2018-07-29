@@ -106,9 +106,9 @@
     auto-bind "^1.1.0"
     debug "^3.1.0"
 
-"@ladjs/web@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@ladjs/web/-/web-0.3.1.tgz#0b7c4e554614bd57b91ab91fe14b7b6337f3d638"
+"@ladjs/web@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@ladjs/web/-/web-0.3.2.tgz#6e1a976fef041eb0840ef9227a59677d2c815cfd"
   dependencies:
     "@ladjs/i18n" "^0.3.2"
     "@ladjs/koa-better-static" "^1.0.5"
@@ -123,6 +123,7 @@
     kcors "^2.2.1"
     koa "^2.5.1"
     koa-404-handler "^0.0.2"
+    koa-basic-auth "^3.0.0"
     koa-better-error-handler "^1.3.5"
     koa-better-flash "^0.0.3"
     koa-better-timeout "^0.0.2"
@@ -873,6 +874,12 @@ base@^0.11.1:
     isobject "^3.0.1"
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
+
+basic-auth@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/basic-auth/-/basic-auth-2.0.0.tgz#015db3f353e02e56377755f962742e8981e7bbba"
+  dependencies:
+    safe-buffer "5.1.1"
 
 bcrypt-pbkdf@^1.0.0:
   version "1.0.2"
@@ -3660,6 +3667,12 @@ koa-404-handler@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/koa-404-handler/-/koa-404-handler-0.0.2.tgz#a6b4350099560fb3042db3e57a39094b661bc558"
 
+koa-basic-auth@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/koa-basic-auth/-/koa-basic-auth-3.0.0.tgz#05967f2320735264d193e37806634615206a710b"
+  dependencies:
+    basic-auth "^2.0.0"
+
 koa-better-error-handler@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/koa-better-error-handler/-/koa-better-error-handler-1.3.5.tgz#12a222e83098c3f04bd57462a1068860070ef022"
@@ -3775,9 +3788,9 @@ koa-livereload@^0.2.0:
     koa "^2.0.0"
     stream-injecter "0.0.1"
 
-"koa-logger@https://github.com/niftylettuce/logger":
+"koa-logger@git+https://github.com/niftylettuce/logger.git":
   version "3.1.0"
-  resolved "https://github.com/niftylettuce/logger#0714ea6917061d1da16da13ffb7a6c199bd5df88"
+  resolved "git+https://github.com/niftylettuce/logger.git#0714ea6917061d1da16da13ffb7a6c199bd5df88"
   dependencies:
     bytes "^2.5.0"
     chalk "^1.1.3"
@@ -6465,6 +6478,10 @@ rxjs@^5.0.0-beta.11:
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.11.tgz#f733027ca43e3bec6b994473be4ab98ad43ced87"
   dependencies:
     symbol-observable "1.0.1"
+
+safe-buffer@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
