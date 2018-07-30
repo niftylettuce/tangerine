@@ -106,9 +106,9 @@
     auto-bind "^1.1.0"
     debug "^3.1.0"
 
-"@ladjs/web@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@ladjs/web/-/web-0.3.2.tgz#6e1a976fef041eb0840ef9227a59677d2c815cfd"
+"@ladjs/web@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@ladjs/web/-/web-0.3.3.tgz#fa0fa9c77c56767d0b400b0dc739562b4b61a122"
   dependencies:
     "@ladjs/i18n" "^0.3.2"
     "@ladjs/koa-better-static" "^1.0.5"
@@ -123,7 +123,7 @@
     kcors "^2.2.1"
     koa "^2.5.1"
     koa-404-handler "^0.0.2"
-    koa-basic-auth "^3.0.0"
+    koa-basic-auth "https://github.com/niftylettuce/basic-auth"
     koa-better-error-handler "^1.3.5"
     koa-better-flash "^0.0.3"
     koa-better-timeout "^0.0.2"
@@ -3667,11 +3667,12 @@ koa-404-handler@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/koa-404-handler/-/koa-404-handler-0.0.2.tgz#a6b4350099560fb3042db3e57a39094b661bc558"
 
-koa-basic-auth@^3.0.0:
+"koa-basic-auth@git+https://github.com/niftylettuce/basic-auth.git":
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/koa-basic-auth/-/koa-basic-auth-3.0.0.tgz#05967f2320735264d193e37806634615206a710b"
+  resolved "git+https://github.com/niftylettuce/basic-auth.git#fb029989f2d849beb5181d21f4bb8be8db0e2fd1"
   dependencies:
     basic-auth "^2.0.0"
+    tsscmp "git+https://github.com/niftylettuce/tsscmp.git"
 
 koa-better-error-handler@^1.3.5:
   version "1.3.5"
@@ -7140,6 +7141,10 @@ trough@^1.0.0:
 tsscmp@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/tsscmp/-/tsscmp-1.0.5.tgz#7dc4a33af71581ab4337da91d85ca5427ebd9a97"
+
+"tsscmp@git+https://github.com/niftylettuce/tsscmp.git":
+  version "1.0.5"
+  resolved "git+https://github.com/niftylettuce/tsscmp.git#46ac4edb9d76e0b376acad9247a7e44988ae135d"
 
 tunnel-agent@~0.4.1:
   version "0.4.3"
