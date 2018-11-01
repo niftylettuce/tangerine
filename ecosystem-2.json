@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "web",
+      "name": "web0",
       "script": "web.js",
       "env_production": {
         "NODE_ENV": "production",
@@ -10,7 +10,16 @@
       }
     },
     {
-      "name": "stream",
+      "name": "web1",
+      "script": "web.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "WEB_PORT": "7004",
+        "WEBSOCKET_PORT": "8004"
+      }
+    },
+    {
+      "name": "stream0",
       "script": "stream.js",
       "env_production": {
         "NODE_ENV": "production",
@@ -19,13 +28,32 @@
       }
     },
     {
-      "name": "video",
+      "name": "stream1",
+      "script": "stream.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "WEBSOCKET_PORT": "8004",
+        "STREAM_PORT": "9004"
+      }
+    },
+    {
+      "name": "video0",
       "script": "ffmpeg.js",
       "env_production": {
         "NODE_ENV": "production",
         "VIDEO_INPUT": "/dev/video0",
         "AUDIO_INPUT": "hw:CARD=C920,DEV=0",
         "STREAM_PORT": "9003"
+      }
+    },
+    {
+      "name": "video1",
+      "script": "ffmpeg.js",
+      "env_production": {
+        "NODE_ENV": "production",
+        "VIDEO_INPUT": "/dev/video1",
+        "AUDIO_INPUT": "hw:CARD=C920_1,DEV=0",
+        "STREAM_PORT": "9004"
       }
     }
   ],

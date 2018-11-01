@@ -61,6 +61,7 @@ const server = createServer((req, res) => {
   // TODO: when we add password/secret we need to `req.end();` early
   res.connection.setTimeout(0);
   req.on('data', data => {
+    console.log('data', data);
     wss.broadcast(data);
   });
 });
