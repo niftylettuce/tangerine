@@ -49,7 +49,7 @@ spawn.sync(
     '-strftime',
     '1',
     `${dir}/%Y-%m-%d_%H-%M-%S.avi`,
-    '-vf'
+    '-vf',
     'fps=2',
     `${dir}/%Y-%m-%d_%H-%M-%S.png`,
   ],
