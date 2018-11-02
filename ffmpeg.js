@@ -48,7 +48,10 @@ spawn.sync(
     '1800',
     '-strftime',
     '1',
-    `${dir}/%Y-%m-%d_%H-%M-%S.avi`
+    `${dir}/%Y-%m-%d_%H-%M-%S.avi`,
+    '-vf'
+    'fps=2',
+    `${dir}/%Y-%m-%d_%H-%M-%S.png`,
   ],
   { stdio: 'inherit' }
 );

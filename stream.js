@@ -65,10 +65,6 @@ const server = createServer((req, res) => {
   // TODO: when we add password/secret we need to `req.end();` early
   res.connection.setTimeout(0);
   req.on('data', data => {
-    if (!written) {
-      fs.writeFileSync(path.join(__dirname, 'test.jpeg', data));
-      written = true;
-    }
     wss.broadcast(data);
   });
 });
