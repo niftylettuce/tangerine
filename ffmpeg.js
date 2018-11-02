@@ -31,7 +31,6 @@ spawn.sync(
     'mpeg1video',
     '-s',
     '640x480',
-    '-vf',
     '-b:v',
     '1000k',
     '-bf',
